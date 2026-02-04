@@ -134,6 +134,55 @@ h3{ font-weight:300; }
   z-index: 9999;
   letter-spacing: 0.5px;
 }
+/* ===== รูปจากโฟลเดอร์ (ล็อคขนาด) ===== */
+.img-wrapper{
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 5; /* ล็อคทุกใบเท่ากัน */
+  overflow: hidden;
+  background: #000;
+  cursor: pointer;
+}
+
+.img-wrapper img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* ===== Overlay เต็มจอ (มือถือสวยมาก) ===== */
+.img-overlay{
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.9);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+  padding: 20px;
+}
+
+.img-overlay.active{
+  display: flex;
+}
+
+.img-overlay img{
+  max-width: 100%;
+  max-height: 100%;
+  border-radius: 14px;
+}
+
+/* ปุ่มปิด */
+.overlay-close{
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  font-size: 26px;
+  color: #fff;
+  cursor: pointer;
+  opacity: .8;
+}
 
 
 </style>
@@ -147,85 +196,91 @@ h3{ font-weight:300; }
 <h3 class="text-center mb-5">ช่อดอกไม้สำหรับคนพิเศษของคุณ</h3>
 
 <!-- ================= 🌻 ดอกทานตะวัน ================= -->
+<h2 class="mb-4">ราคาแต่ละช่อ</h2>
+<div class="row g-4">
+
+<div class="col-12 col-md-4">
+  <div class="flower-card">
+    
+    <div class="img-wrapper" onclick="openImage(this)">
+      <img src="images/p01.png" alt="">
+    </div>
+  </div>
+</div>
+
+<div class="col-12 col-md-4">
+  <div class="flower-card">
+   
+    <div class="img-wrapper" onclick="openImage(this)">
+      <img src="images/p02.png" alt="">
+    </div>
+  </div>
+</div>
+
+<div class="divider"><span>@ZINFLOW</span></div>
+
 <h2 class="mb-4">ช่อดอกทานตะวัน</h2>
 <div class="row g-4">
 
-  <div class="col-12 col-md-4">
-    <div class="flower-card">
-      <div class="price-overlay">650฿</div>
-      <div class="ig-wrapper">
-        <blockquote class="instagram-media"
-          data-instgrm-permalink="https://www.instagram.com/p/DLh_8YrhNTf/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
-          data-instgrm-version="14"></blockquote>
-      </div>
+
+
+<div class="col-12 col-md-4">
+  <div class="flower-card">
+    <div class="price-overlay">ขายดี ฿349</div>
+    <div class="img-wrapper" onclick="openImage(this)">
+      <img src="images/sun1.png" alt="ช่อดอกทานตะวัน 650 บาท">
     </div>
   </div>
+</div>
+
 
   <div class="col-12 col-md-4">
-    <div class="flower-card">
-      <div class="price-overlay">ขายดี ฿349</div>
-      <div class="ig-wrapper">
-        <blockquote class="instagram-media"
-          data-instgrm-permalink="https://www.instagram.com/p/DHgm7WihmXu/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
-          data-instgrm-version="14"></blockquote>
-      </div>
+  <div class="flower-card">
+    <div class="price-overlay">฿189</div>
+    <div class="img-wrapper" onclick="openImage(this)">
+      <img src="images/sun2.png" alt="ช่อดอกทานตะวัน 189 บาท">
     </div>
   </div>
+</div>
 
   <div class="col-12 col-md-4">
-    <div class="flower-card">
-      <div class="price-overlay">฿199</div>
-      <div class="ig-wrapper">
-        <blockquote class="instagram-media"
-          data-instgrm-permalink="https://www.instagram.com/p/DLvcu_LzyuJ/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
-          data-instgrm-version="14"></blockquote>
-      </div>
+  <div class="flower-card">
+    <div class="price-overlay">฿199</div>
+    <div class="img-wrapper" onclick="openImage(this)">
+      <img src="images/sun3.png" alt="ช่อดอกทานตะวัน 199 บาท">
     </div>
   </div>
+</div>
 
   <div class="col-12 col-md-4">
-    <div class="flower-card">
-      <div class="price-overlay">฿249</div>
-      <div class="ig-wrapper">
-        <blockquote class="instagram-media"
-          data-instgrm-permalink="https://www.instagram.com/p/DLcFgmRh_Dj/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
-          data-instgrm-version="14"></blockquote>
-      </div>
+  <div class="flower-card">
+    <div class="price-overlay">฿249</div>
+    <div class="img-wrapper" onclick="openImage(this)">
+      <img src="images/sun4.png" alt="ช่อดอกทานตะวัน 249 บาท">
     </div>
   </div>
+</div>
 
   <div class="col-12 col-md-4">
-    <div class="flower-card">
-      <div class="price-overlay">฿189</div>
-      <div class="ig-wrapper">
-        <blockquote class="instagram-media"
-          data-instgrm-permalink="https://www.instagram.com/p/DKZ75mMhrX7/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
-          data-instgrm-version="14"></blockquote>
-      </div>
+  <div class="flower-card">
+    <div class="price-overlay">฿499</div>
+    <div class="img-wrapper" onclick="openImage(this)">
+      <img src="images/sun5.png" alt="ช่อดอกทานตะวัน 499 บาท">
     </div>
   </div>
+</div>
+
+
+  
 
   <div class="col-12 col-md-4">
-    <div class="flower-card">
-      <div class="price-overlay">฿429</div>
-      <div class="ig-wrapper">
-        <blockquote class="instagram-media"
-          data-instgrm-permalink="https://www.instagram.com/p/DKcsuVYB0C_/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
-          data-instgrm-version="14"></blockquote>
-      </div>
+  <div class="flower-card">
+    <div class="price-overlay">฿zinflow</div>
+    <div class="img-wrapper" onclick="openImage(this)">
+      <img src="images/sun6.png" alt="zinflow">
     </div>
   </div>
-
-  <div class="col-12 col-md-4">
-    <div class="flower-card">
-      <div class="price-overlay">zinflow</div>
-      <div class="ig-wrapper">
-        <blockquote class="instagram-media"
-          data-instgrm-permalink="https://www.instagram.com/p/DLiZHDpTY-3/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
-          data-instgrm-version="14"></blockquote>
-      </div>
-    </div>
-  </div>
+</div>
   
 
 </div>
@@ -235,181 +290,161 @@ h3{ font-weight:300; }
 <!-- ================= 🌹 กุหลาบกลิสเตอร์ ================= -->
 <h2 class="mb-4">ช่อดอกกุหลาบกลิสเตอร์</h2>
 
-<div class="row g-4">
-  <div class="col-12 col-md-4">
-    <div class="flower-card">
-      <div class="price-overlay">แนะนำ</div>
-      <div class="ig-wrapper">
-        <blockquote class="instagram-media"
-          data-instgrm-permalink="https://www.instagram.com/p/DUCsExTAcsd/"
-          data-instgrm-version="14"></blockquote>
-      </div>
+ <div class="col-12 col-md-4">
+  <div class="flower-card">
+    <div class="img-wrapper" onclick="openImage(this)">
+      <img src="images/s1.png" alt="">
     </div>
   </div>
+</div>
+
+ <div class="col-12 col-md-4">
+  <div class="flower-card">
+    <div class="img-wrapper" onclick="openImage(this)">
+      <img src="images/s2.png" alt="">
+    </div>
+  </div>
+</div>
+
+ <div class="col-12 col-md-4">
+  <div class="flower-card">
+    <div class="img-wrapper" onclick="openImage(this)">
+      <img src="images/s3.png" alt="">
+    </div>
+  </div>
+</div>
 
   <div class="col-12 col-md-4">
-    <div class="flower-card">
-      <div class="price-overlay">ช่อ 1 ดอก ฿79</div>
-      <div class="ig-wrapper">
-        <blockquote class="instagram-media"
-          data-instgrm-permalink="https://www.instagram.com/p/DLLLNnxBQ7V/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
-          data-instgrm-version="14"></blockquote>
-      </div>
+  <div class="flower-card">
+    <div class="price-overlay">ช่อ1ดอก ฿79</div>
+    <div class="img-wrapper" onclick="openImage(this)">
+      <img src="images/R1.png" alt="">
     </div>
   </div>
+</div>
+
+ <div class="col-12 col-md-4">
+  <div class="flower-card">
+    <div class="price-overlay">ช่อ3ดอก ฿189</div>
+    <div class="img-wrapper" onclick="openImage(this)">
+      <img src="images/R2.png" alt="">
+    </div>
+  </div>
+</div>
 
   <div class="col-12 col-md-4">
-    <div class="flower-card">
-      <div class="price-overlay">ช่อ 3 ดอก ฿189</div>
-      <div class="ig-wrapper">
-        <blockquote class="instagram-media"
-          data-instgrm-permalink="https://www.instagram.com/p/DP4HZ-ogfmz/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
-          data-instgrm-version="14"></blockquote>
-      </div>
+  <div class="flower-card">
+    <div class="price-overlay">ช่อ6ดอก฿299</div>
+    <div class="img-wrapper" onclick="openImage(this)">
+      <img src="images/R3.png" alt="">
     </div>
   </div>
-
-  <div class="col-12 col-md-4">
-    <div class="flower-card">
-      <div class="price-overlay">ช่อ 6 ดอก ฿299</div>
-      <div class="ig-wrapper">
-        <blockquote class="instagram-media"
-          data-instgrm-permalink="https://www.instagram.com/p/DLKKEqxBoMf/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
-          data-instgrm-version="14"></blockquote>
-      </div>
-    </div>
-  </div>
-
-  <div class="col-12 col-md-4">
-    <div class="flower-card">
-      <div class="price-overlay">ช่อ 7 ดอก ฿349</div>
-      <div class="ig-wrapper">
-        <blockquote class="instagram-media"
-          data-instgrm-permalink="https://www.instagram.com/p/DMQTW2RBwa1/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
-          data-instgrm-version="14"></blockquote>
-      </div>
-    </div>
-  </div>
-
-  <div class="col-12 col-md-4">
-    <div class="flower-card">
-      <div class="price-overlay">ช่อ 10 ดอก ฿399</div>
-      <div class="ig-wrapper">
-        <blockquote class="instagram-media"
-          data-instgrm-permalink="https://www.instagram.com/p/DMFiTpTBVNn/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
-          data-instgrm-version="14"></blockquote>
-      </div>
-    </div>
-  </div>
+</div>
   
   <div class="col-12 col-md-4">
-    <div class="flower-card">
-      <div class="price-overlay">ช่อ 15 ดอก ฿499</div>
-      <div class="ig-wrapper">
-        <blockquote class="instagram-media"
-          data-instgrm-permalink="https://www.instagram.com/p/DQkqonNExXc/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
-          data-instgrm-version="14"></blockquote>
-      </div>
+  <div class="flower-card">
+    <div class="price-overlay">ช่อ7ดอก ฿349</div>
+    <div class="img-wrapper" onclick="openImage(this)">
+      <img src="images/R4.png" alt="">
     </div>
   </div>
+</div>
 
+ <div class="col-12 col-md-4">
+  <div class="flower-card">
+    <div class="price-overlay">ช่อ10ดอก ฿399</div>
+    <div class="img-wrapper" onclick="openImage(this)">
+      <img src="images/R5.png" alt="">
+    </div>
+  </div>
+</div>
   
   <div class="col-12 col-md-4">
-    <div class="flower-card">
-      <div class="price-overlay">ช่อ 20 ดอก ฿899</div>
-      <div class="ig-wrapper">
-        <blockquote class="instagram-media"
-          data-instgrm-permalink="https://www.instagram.com/p/DUM3akxARvE/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
-          data-instgrm-version="14"></blockquote>
-      </div>
+  <div class="flower-card">
+    <div class="price-overlay">ช่อ15ดอก ฿499</div>
+    <div class="img-wrapper" onclick="openImage(this)">
+      <img src="images/R6.png" alt="">
     </div>
   </div>
+</div>
+
+<div class="col-12 col-md-4">
+  <div class="flower-card">
+    <div class="price-overlay">ช่อ20ดอก ฿899</div>
+    <div class="img-wrapper" onclick="openImage(this)">
+      <img src="images/R7.png" alt="">
+    </div>
+  </div>
+</div>
 
 <div class="divider"><span>ช่อฟูจีน</span></div>
+
 <div class="col-12 col-md-4">
-    <div class="flower-card">
-      <div class="price-overlay">฿329</div>
-      <div class="ig-wrapper">
-        <blockquote class="instagram-media"
-          data-instgrm-permalink="https://www.instagram.com/p/DUHSdgvE4nF/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
-          data-instgrm-version="14"></blockquote>
-      </div>
+  <div class="flower-card">
+    <div class="price-overlay">6ดอกฟูจีน ฿329</div>
+    <div class="img-wrapper" onclick="openImage(this)">
+      <img src="images/f1.png" alt="">
     </div>
   </div>
+</div>
 
 
 <div class="col-12 col-md-4">
-    <div class="flower-card">
-      <div class="price-overlay">฿429</div>
-      <div class="ig-wrapper">
-        <blockquote class="instagram-media"
-          data-instgrm-permalink="https://www.instagram.com/p/DUHnfRqAWD7/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
-          data-instgrm-version="14"></blockquote>
-      </div>
+  <div class="flower-card">
+    <div class="price-overlay">10ดอกฟูจีน ฿429</div>
+    <div class="img-wrapper" onclick="openImage(this)">
+      <img src="images/f2.png" alt="">
     </div>
   </div>
+</div>
 
 <div class="col-12 col-md-4">
-    <div class="flower-card">
-      <div class="price-overlay">zinflow</div>
-      <div class="ig-wrapper">
-        <blockquote class="instagram-media"
-          data-instgrm-permalink="https://www.instagram.com/p/DUISW-TAbxf/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
-          data-instgrm-version="14"></blockquote>
-      </div>
+  <div class="flower-card">
+    <div class="price-overlay">โบว์คาด +30</div>
+    <div class="img-wrapper" onclick="openImage(this)">
+      <img src="images/f3.png" alt="">
     </div>
   </div>
+</div>
+  
+<div class="col-12 col-md-4">
+  <div class="flower-card">
+    <div class="img-wrapper" onclick="openImage(this)">
+      <img src="images/f4.png" alt="">
+    </div>
+  </div>
+</div>
 
   
 <div class="col-12 col-md-4">
-    <div class="flower-card">
-      <div class="price-overlay">zinflow</div>
-      <div class="ig-wrapper">
-        <blockquote class="instagram-media"
-          data-instgrm-permalink="https://www.instagram.com/p/DUFitLogZkC/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
-          data-instgrm-version="14"></blockquote>
-      </div>
+  <div class="flower-card">
+    <div class="img-wrapper" onclick="openImage(this)">
+      <img src="images/f5.png" alt="">
     </div>
   </div>
+</div>
 
   
 <div class="col-12 col-md-4">
-    <div class="flower-card">
-      <div class="price-overlay">zinflow</div>
-      <div class="ig-wrapper">
-        <blockquote class="instagram-media"
-          data-instgrm-permalink="https://www.instagram.com/p/DT5QD96AeIi/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
-          data-instgrm-version="14"></blockquote>
-      </div>
+  <div class="flower-card">
+    <div class="img-wrapper" onclick="openImage(this)">
+      <img src="images/f6.png" alt="">
     </div>
   </div>
-
-  
-<div class="col-12 col-md-4">
-    <div class="flower-card">
-      <div class="price-overlay">zinflow</div>
-      <div class="ig-wrapper">
-        <blockquote class="instagram-media"
-          data-instgrm-permalink="https://www.instagram.com/p/DT_0a2cgdvU/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
-          data-instgrm-version="14"></blockquote>
-      </div>
-    </div>
-  </div>
+</div>
 
 
   <div class="divider"><span>ช่อดอกลีลาวดี</span></div>
 
    
 <div class="col-12 col-md-4">
-    <div class="flower-card">
-      <div class="price-overlay">฿299</div>
-      <div class="ig-wrapper">
-        <blockquote class="instagram-media"
-          data-instgrm-permalink="https://www.instagram.com/p/DT5P-7vAUk7/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
-          data-instgrm-version="14"></blockquote>
-      </div>
+  <div class="flower-card">
+    <div class="price-overlay"> ฿299</div>
+    <div class="img-wrapper" onclick="openImage(this)">
+      <img src="images/l1.png" alt="">
     </div>
   </div>
+</div>
 
 </div>
 
@@ -434,6 +469,8 @@ h3{ font-weight:300; }
 </ul>
 </div>
 
+ 
+
 <div class="text-center">
 <a href="https://www.instagram.com/zinf.low/" target="_blank" class="btn btn-ig">
 สั่งซื้อผ่าน Instagram
@@ -443,6 +480,9 @@ h3{ font-weight:300; }
 
 </div>
 
+
+ <div class="divider"><span>@zinflow</span></div>
+
 <script async src="https://www.instagram.com/embed.js"></script>
 <!-- ================= 📞 CONTACT BAR ================= -->
 <div class="contact-bar">
@@ -450,5 +490,45 @@ h3{ font-weight:300; }
    <li>Ig: zinf.low</li>
 </div>
 
+
+<div class="img-overlay" id="imgOverlay" onclick="closeImage()">
+  <span class="overlay-close">&times;</span>
+  <img id="overlayImg" src="">
+</div>
+
+<audio id="bgMusic" loop>
+  <source src="music/1.mp3" type="audio/mpeg">
+</audio>
+
+
 </body>
+
+<script>
+function openImage(el){
+  const img = el.querySelector("img");
+  const overlay = document.getElementById("imgOverlay");
+  const overlayImg = document.getElementById("overlayImg");
+
+  overlayImg.src = img.src;
+  overlay.classList.add("active");
+}
+
+function closeImage(){
+  document.getElementById("imgOverlay").classList.remove("active");
+}
+</script>
+<script>
+let musicPlayed = false;
+const music = document.getElementById("bgMusic");
+
+document.addEventListener("click", () => {
+  if (!musicPlayed) {
+    music.volume = 0.3;   // เบา ๆ ร้านดอกไม้
+    music.play();
+    musicPlayed = true;
+  }
+});
+</script>
+
+
 </html>
